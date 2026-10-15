@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>TP Docker - BOZZI</title>
+  <style>
+    body { font-family: sans-serif; background: #1e2430; color: #e6e6e6; text-align: center; padding-top: 80px; }
+    h1 { color: #2496ed; }
+    .box { display: inline-block; background: #2b3242; padding: 20px 40px; border-radius: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <h1>Serveur web Python dans Docker</h1>
+  <p>TP Docker - Nils BOZZI - ESGI</p>
+  <div class="box" id="info">Chargement...</div>
+  <script>
+    fetch("/api/info").then(r => r.json()).then(d => {
+      document.getElementById("info").innerHTML =
+        "Conteneur : <b>" + d.hostname + "</b><br>" +
+        "Python : <b>" + d.python + "</b><br>" +
+        "Heure : <b>" + d.time + "</b>";
+    });
+  </script>
+</body>
+</html>
